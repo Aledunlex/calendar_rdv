@@ -1,0 +1,40 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+
+<div class="container mx-auto w-[95%] mt-10">
+    <table class="min-w-full bg-white border ">
+        <thead class="bg-[#bedce7d9]">
+            <tr class="py-2 px-4 border">
+                <th scope="col" class="border px-12 text-left">Nom des groupes</th>
+                <th scope="col" class="border">Le miens ?</th>
+                <th scope="col" class="border">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in groups %}
+                <tr class="py-2 px-4 border">
+                    <td class="border px-12">{{ group.group.name }}</td>
+                    <td class="border w-[6rem] text-center">{% if group.is_owner %} Oui {% else %} Non {% endif %}</td>
+                    <td class="border w-6">
+                        {% if group.is_owner %}
+                        <div class ="flex items-center">
+                            <a href="#" onclick="addUserGroup('{{ group.group.id }}')" class="flex items-center">
+                                Gérer
+                            </a>
+                        </div>
+                        {% else %}
+                        <div class ="flex items-center">
+                            <a href="#" class="flex items-center">
+                                Quitter
+                            </a>
+                        </div>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

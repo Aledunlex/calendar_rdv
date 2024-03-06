@@ -1,0 +1,15 @@
+<td
+    class="border {%if item['month'] != month%} bg-gray-100 {%endif%} {%if item['is_today']%} bg-teal-100 {%endif%} p-1 min-h-24 h-2/4  xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300 ">
+    <a href="#" onclick="addCalendarEvent('{{ item.number }}', '{{ item.month }}', '{{ item.year }}')" class="w-full min-h-24 h-2/4">
+        <div class="flex flex-col min-h-24 h-2/4 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden">
+            <div class="top h-4 w-full">
+                <span class="text-gray-500">{{item['number']}}</span>
+            </div>
+            <div class="bottom flex-grow h-20 py-1 w-full overflow-auto cursor-pointer">
+                {% for event in item['events'] %}
+                {% include "components/calendar/event.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </a>
+</td>

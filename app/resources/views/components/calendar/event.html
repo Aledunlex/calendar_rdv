@@ -1,0 +1,10 @@
+<div class="event bg-{% if event.has_passed %}stone-900{%else%}{% if event.is_participating %}purple{% else %}gray{%endif%}-400{%endif%} text-white rounded p-1 text-sm mb-1">
+  <a class="w-full h-full block" onclick="displayEvent({{ event.id }})">
+    <span class="event-name">
+      {{ event.name}}
+    </span>
+    <span class="time">
+      {{event.date_meeting.time().isoformat("minutes")}}
+    </span>
+    </a>
+  </div> 

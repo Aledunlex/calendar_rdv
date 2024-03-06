@@ -1,0 +1,38 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+
+<div class="flex flex-col justify-center items-center h-screen mt-[-4rem] bg-gradient-to-r from-sky-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
+    <div class="flex flex-col  items-center bg-white rounded-3xl p-8">
+
+
+        <div class="text-3xl font-extrabold mb-8">
+            Se connecter
+        </div>
+        <div class="flex flex-col items -start">
+            <form action="/auth/login" method="post">
+                {% with type="text", name="username", placeholder="Username", label="Username" %}
+                {% include "components/input.html" %}
+                {% endwith %}
+
+                {% with type="password", name="password", placeholder="Password", label="Password" %}
+                {% include "components/input.html" %}
+                {% endwith %}
+                <div class="my-8 w-full border-b"></div>
+                <div class="flex w-full flex-col items-center">
+                    <button type="submit"
+                        class="relative mx-auto py-2 px-8 text-black text-base font-bold uppercase rounded-[50px] overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-500 before:to-blue-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-[50px] hover:before:left-0">
+                        Se connecter
+                    </button>
+                    <div class="mx-auto mt-2">
+                        <span>Pas de compte ?</span>
+                        <a href="/auth/register" class="text-emerald-700 hover:underline">S'inscrire</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

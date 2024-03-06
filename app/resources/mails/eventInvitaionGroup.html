@@ -1,0 +1,39 @@
+<div>
+    <h1>Bonjour {{user.firstname}}</h1>
+    <br>
+    <br>
+    <h1> Nouveaux événements !</h1>
+    <p> Vous avez rejoint le groupe : <i>{{group.name}}</i></p>
+    <p> Vous êtes donc invité a {{groups.count}} événement(s) </p>
+    <br>
+    <h2> Liste des événement(s) :</h2>
+    <ul>
+
+
+        {% for event in groups.events %}
+            <li>
+                <h3> Détails de l'événement :</h3>
+                <p> Nom : <i>{{event.name}}</i></p>
+                <p> Date : <i>{{event.date_meeting}}</i></p>
+                <p> Lieu : <i>{{event.location}}</i></p>
+                <p> Description : <i>{{event.description}}</i></p>
+            </li>
+        {% endfor %}
+    </ul>
+   
+    <br>
+    <p> Cliquez <a href="{{baseurl}}/unanswered_events">ici</a> pour répondre !</p>
+    <br>
+   
+    <br>
+    <p>  A bientôt !</p>
+    <pre>
+        .--.
+       |o_o |
+       |:_/ |
+      //   \ \
+     (|     | )
+    /'\_   _/`\
+    \___)=(___/
+    </pre>
+</div>

@@ -1,0 +1,29 @@
+<div class="absolute z-[99] top-0 left-0 pl-16 pr-8 h-16 bg-[#bedce7d9] w-full flex items-center justify-between">
+    <!-- Logo -->
+    <div>
+        <a href="/">
+            <img class="h-12 rounded-lg" src="/static/images/logo.png" alt="logo">
+        </a>
+    </div>
+    <!-- Links -->
+    <div class="w-[80%] flex justify-eventy mx-8">
+        {% if 'id_user' in context.session and context.session.id_user %}
+        <a class="text-emerald-700 px-6 hover:underline" href="/">Calendrier</a>
+        <a class="text-emerald-700 px-6 hover:underline" href="/group">Mes groupes</a>
+        <a class="text-emerald-700 px-6 hover:underline" href="/home">Mon profil</a>
+        <a class="text-emerald-700 px-6 hover:underline" href="/unanswered_events">Mes invitations</a>
+        {% endif %}
+        
+    </div>
+    <!-- auth -->
+    <div class="flex h-12">
+        {% if 'id_user' in context.session and context.session.id_user %}
+        <a class="inline-flex items-center px-4 py-2 bg-red-600 transition ease-in-out delay-75 hover:bg-red-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110" href="/auth/logout">Logout</a>
+        {% else %}
+        <a class="bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce" href="/auth/register">Rejoindre</a>
+        <a class=" text-black font-bold py-3 px-6  " href="/auth/login">Connexion</a>
+        {% endif %}
+    </div>
+
+</div>
+
